@@ -27,6 +27,7 @@ extension UIViewController {
     }
     
     
+    
     /**
      显示提示信息(有菊花, 一直显示, 不消失)，默认文字“加载中”，默认偏移量0
      
@@ -39,6 +40,8 @@ extension UIViewController {
         let HUD = MBProgressHUD(view: view)
         HUD.label.text = hint
         HUD.label.font = UIFont.systemFont(ofSize: 15)
+        HUD.backgroundView.style = .solidColor
+        HUD.backgroundView.color = UIColor(white: 0, alpha: 0.1)
         //设为false后点击屏幕其他地方有反应
         HUD.isUserInteractionEnabled = true
         //HUD内的内容的颜色
@@ -67,8 +70,10 @@ extension UIViewController {
         let view = KeyWindow
         let HUD = MBProgressHUD(view: view)
         view.addSubview(HUD)
+        HUD.backgroundView.style = .solidColor
+        HUD.backgroundView.color = UIColor(white: 0, alpha: 0.1)
         HUD.animationType = .zoomOut
-        HUD.isUserInteractionEnabled = false
+        HUD.isUserInteractionEnabled = true
         HUD.bezelView.color = UIColor.black
         HUD.contentColor = UIColor.white
         HUD.mode = .text
@@ -93,12 +98,14 @@ extension UIViewController {
         
         let HUD = MBProgressHUD(view: view)
         view.addSubview(HUD)
+        HUD.backgroundView.style = .solidColor
+        HUD.backgroundView.color = UIColor(white: 0, alpha: 0.1)
         HUD.animationType = .zoomOut
         HUD.bezelView.color = UIColor.black
         HUD.contentColor = UIColor.white
         HUD.mode = .text
         HUD.label.text = hint
-        HUD.isUserInteractionEnabled = false
+        HUD.isUserInteractionEnabled = true
         HUD.removeFromSuperViewOnHide = false
         HUD.show(animated: true)
         HUD.offset.y = yOffset ?? 0
